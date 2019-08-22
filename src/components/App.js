@@ -8,9 +8,7 @@ class App extends React.Component {
     super()
 
     this.state = {
-      pets: [
-        isAdopted: false
-      ],
+      pets: [],
       filters: {
         type: 'all'
       }
@@ -53,16 +51,13 @@ class App extends React.Component {
     })
   }
 
-  onAdoptPet = () => {
-    if (this.state.isAdopted === false) {
-      this.setState(
-        isAdopted: true
-      )
-    } else {
-      this.setState(
-        isAdopted: false
-      )
-    }
+  onAdoptPet = (petID) => {
+    const pets = this.state.pets.map(pet => {
+      if (pet.id === petID) {
+        return {...pet, isAdopted: true}
+      }
+    })
+    this.setState({ pets })
   }
 
   render() {
