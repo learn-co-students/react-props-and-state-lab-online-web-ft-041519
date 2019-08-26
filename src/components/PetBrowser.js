@@ -5,9 +5,7 @@ import Pet from './Pet'
 class PetBrowser extends React.Component {
 
   showPets = () => {
-
     return this.props.pets.map(pet => {
-      const pet = {}
       return <Pet 
               id={pet.id}
               name={pet.name} 
