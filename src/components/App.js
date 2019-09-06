@@ -41,16 +41,23 @@ class App extends React.Component {
 
   }
 
-  onAdoptPet = (pet_id) => {
-    debugger;
-    let newIds = this.state.pets.slice() 
-    newIds.map(pet => {
-      if (pet.id === pet_id) {
-        pet.isAdopted = true  
-      }
-      return pet
-    }) 
-    this.setState({pets: newIds})
+  onAdoptPet = (petId) => {
+   // debugger;
+    // let newIds = this.state.pets.slice() 
+    // newIds.map(pet => {
+    //   if (pet.id === pet_id) {
+    //     pet.isAdopted = true  
+    //   }
+    //   return pet
+    // }) 
+    // this.setState({pets: newIds})
+
+    const pets = this.state.pets.map(p => {
+      return p.id === petId ? { ...p, isAdopted: true } : p;
+    });
+    this.setState({ pets });
+
+
   } 
 
   // componentDidMount() {

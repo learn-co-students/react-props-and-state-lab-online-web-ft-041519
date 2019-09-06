@@ -13,10 +13,10 @@ class Pet extends React.Component {
 
   adopt_button = () => {
     if (this.props.pet.isAdopted) {
-      return <button className="ui disabled button" onClick={this.props.onAdoptPet(this.props.pet.id)}>Already adopted</button>
+      return <button className="ui disabled button" >Already adopted</button>
     } 
     else {
-      return <button className="ui primary button">Adopt pet</button>
+      return <button className="ui primary button" onClick={() => {this.props.onAdoptPet(this.props.pet.id)}} >Adopt pet</button>
     }
   }
 
